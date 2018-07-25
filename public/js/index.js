@@ -1,8 +1,8 @@
-var socket = io();
+var socket = io("http://172.17.0.140:3020");
 socket.on("chat", addChat);
 
 $(() => {
-    $("send").click(() => {
+    $("#send").click(() => {
         var chatMessage = {
             name: $("#txtName").val(),
             chat: $("#txtMessage").val()

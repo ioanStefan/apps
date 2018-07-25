@@ -1,7 +1,6 @@
 // Imports
 const Chat = require('../models/chat');
 const ChatModel = Chat.ChatModel;
-const socketServer = require('../config/socket-server');
 
 module.exports = {
     /**
@@ -22,10 +21,10 @@ module.exports = {
 
                 if (chat) {
                     res.sendStatus(200);
-                    socketServer.io.emit("chat", req.body);
+                    global.socketIO.emit("chat", req.body);
                 }
 
-                res.sendStatus(500);
+                // res.sendStatus(500);
             })
         } catch (error) {
             res.sendStatus(500);

@@ -24,6 +24,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+global.socketIO = socketServer.setupSocketServer(app);
+
 // Import Routers
 const chats = require('./routes/chats');
 
@@ -31,8 +33,6 @@ app.use('/chats', chats);
 
 app.use(express.static(__dirname + "/public"));
 
-socketServer.setupSocketServer(app);
-
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+app.listen(3018, () => {
+    console.log("Server started on port 3018");
 });

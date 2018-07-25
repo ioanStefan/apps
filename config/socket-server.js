@@ -19,6 +19,6 @@ module.exports = {
             console.log("Socket server listening on 3020")
         })
 
-    },
-    io
+        return io;
+    }
 }
